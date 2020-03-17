@@ -75,20 +75,6 @@ const nrf_drv_timer_t capture_timer = NRF_DRV_TIMER_INSTANCE(0);
 #define GPIOTE_CH_CAPTURE               0
 #define GPIOTE_CH_RESTART               1
 
-/**
- * @brief Handler for timer events.
- */
-void capture_timer_event_handler(nrf_timer_event_t event_type, void* p_context)
-{
-    switch (event_type)
-    {
-        case NRF_TIMER_EVENT_COMPARE0:
-            break;
-
-        default:
-            break;
-    }
-}
 
 static void gpiote_capture_init(void)
 {
@@ -100,7 +86,7 @@ static void gpiote_capture_init(void)
 
     nrf_drv_timer_config_t timer_cfg = NRF_DRV_TIMER_DEFAULT_CONFIG;
     timer_cfg.frequency = TIMER_PRESCALER;
-    err_code = nrf_drv_timer_init(&capture_timer, &timer_cfg, capture_timer_event_handler);
+    err_code = nrf_drv_timer_init(&capture_timer, &timer_cfg, 0);
     APP_ERROR_CHECK(err_code);
 
     NRF_GPIOTE->CONFIG[GPIOTE_CH_CAPTURE] = GPIOTE_CONFIG_MODE_Event << GPIOTE_CONFIG_MODE_Pos |
