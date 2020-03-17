@@ -318,7 +318,7 @@
  
 
 #ifndef TIMER0_ENABLED
-#define TIMER0_ENABLED 1
+#define TIMER0_ENABLED 0
 #endif
 
 // <q> TIMER1_ENABLED  - Enable TIMER1 instance
@@ -339,14 +339,14 @@
  
 
 #ifndef TIMER3_ENABLED
-#define TIMER3_ENABLED 0
+#define TIMER3_ENABLED 1
 #endif
 
 // <q> TIMER4_ENABLED  - Enable TIMER4 instance
  
 
 #ifndef TIMER4_ENABLED
-#define TIMER4_ENABLED 0
+#define TIMER4_ENABLED 1
 #endif
 
 // </e>

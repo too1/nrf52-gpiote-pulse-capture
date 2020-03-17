@@ -55,16 +55,16 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="115" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../main.c" selected="0" top="100" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="115" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../main.c" selected="1" top="148" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="127" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/hal/nrf_timer.h" selected="0" top="112" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="96" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/drivers/include/nrfx_ppi.h" selected="0" top="67" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="373" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/drivers/include/nrfx_timer.h" selected="0" top="358" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="7" y="108" useTextEdit="1" useBinaryEdit="0" left="0" path="../config/sdk_config.h" selected="1" top="84" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="24" y="348" useTextEdit="1" useBinaryEdit="0" left="0" path="../config/sdk_config.h" selected="0" top="314" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="288" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/drivers/src/nrfx_ppi.c" selected="0" top="268" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="81" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../integration/nrfx/legacy/nrf_drv_timer.h" selected="0" top="59" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="1079" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../integration/nrfx/legacy/apply_old_config.h" selected="0" top="1030" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="10972" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/mdk/nrf52_bitfields.h" selected="0" top="10941" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="56" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/drivers/include/nrfx_gpiote.h" selected="0" top="25" codecName="Default"/>
  </Files>
- <ARMCrossStudioWindow activeProject="temperature_pca10040" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Release" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="D:/Nordic_Semiconductor/nRF5_SDK_16.0.0/modules/nrfx/drivers/src" debugSearchPath="" autoConnectCapabilities="3199"/>
+ <ARMCrossStudioWindow activeProject="temperature_pca10040" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Release" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="D:/Nordic_Semiconductor/nRF5_SDK_16.0.0/modules/nrfx/drivers/src" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>

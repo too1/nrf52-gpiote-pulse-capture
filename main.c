@@ -68,13 +68,53 @@
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
-const nrf_drv_timer_t capture_timer = NRF_DRV_TIMER_INSTANCE(0);
+const nrf_drv_timer_t capture_timer = NRF_DRV_TIMER_INSTANCE(3);
 
-#define SAMPLE_PIN                      BUTTON_1
-#define TIMER_PRESCALER                 2
+#define SAMPLE_PIN                      3
+#define TIMER_PRESCALER                 NRF_TIMER_FREQ_1MHz
 #define GPIOTE_CH_CAPTURE               0
 #define GPIOTE_CH_RESTART               1
+#define GPIOTE_CH_SELFTEST              2
 
+#define SELF_TEST                       1
+
+#if SELF_TEST
+const nrf_drv_timer_t test_timer = NRF_DRV_TIMER_INSTANCE(4);
+
+static void run_self_test_pin(uint32_t pin_no, uint32_t us_on, uint32_t us_off)
+{
+    uint32_t err_code;
+    static nrf_ppi_channel_t ppi_ch_test_pin_run, ppi_ch_test_pin_run2;
+    
+    nrf_drv_timer_config_t timer_cfg = NRF_DRV_TIMER_DEFAULT_CONFIG;
+    timer_cfg.frequency = NRF_TIMER_FREQ_1MHz;
+    timer_cfg.bit_width = NRF_TIMER_BIT_WIDTH_32;
+    err_code = nrf_drv_timer_init(&test_timer, &timer_cfg, 0);
+    APP_ERROR_CHECK(err_code);
+    
+    nrf_drv_timer_extended_compare(&test_timer, 0, us_on,          0,                               false);
+    nrf_drv_timer_extended_compare(&test_timer, 1, us_on + us_off, TIMER_SHORTS_COMPARE1_CLEAR_Msk, false);
+    
+    NRF_GPIOTE->CONFIG[GPIOTE_CH_SELFTEST] = GPIOTE_CONFIG_MODE_Task << GPIOTE_CONFIG_MODE_Pos |
+                                             GPIOTE_CONFIG_POLARITY_Toggle << GPIOTE_CONFIG_POLARITY_Pos |
+                                             pin_no << GPIOTE_CONFIG_PSEL_Pos;
+                                             
+    nrfx_ppi_channel_alloc(&ppi_ch_test_pin_run);
+    nrfx_ppi_channel_assign(ppi_ch_test_pin_run,
+                            nrf_drv_timer_compare_event_address_get(&test_timer, 0),
+                            (uint32_t)&NRF_GPIOTE->TASKS_CLR[GPIOTE_CH_SELFTEST]);
+    nrfx_ppi_channel_enable(ppi_ch_test_pin_run);
+    
+    nrfx_ppi_channel_alloc(&ppi_ch_test_pin_run2);
+    nrfx_ppi_channel_assign(ppi_ch_test_pin_run2,
+                            nrf_drv_timer_compare_event_address_get(&test_timer, 1),
+                            (uint32_t)&NRF_GPIOTE->TASKS_SET[GPIOTE_CH_SELFTEST]);
+    nrfx_ppi_channel_enable(ppi_ch_test_pin_run2);
+    
+    nrf_drv_timer_clear(&test_timer);
+    nrf_drv_timer_resume(&test_timer);
+}
+#endif
 
 static void gpiote_capture_init(void)
 {
@@ -86,6 +126,7 @@ static void gpiote_capture_init(void)
 
     nrf_drv_timer_config_t timer_cfg = NRF_DRV_TIMER_DEFAULT_CONFIG;
     timer_cfg.frequency = TIMER_PRESCALER;
+    timer_cfg.bit_width = NRF_TIMER_BIT_WIDTH_32;
     err_code = nrf_drv_timer_init(&capture_timer, &timer_cfg, 0);
     APP_ERROR_CHECK(err_code);
 
@@ -126,13 +167,16 @@ int main(void)
     nrf_gpio_cfg_input(SAMPLE_PIN, NRF_GPIO_PIN_PULLUP);
 
     gpiote_capture_init();
+    
+#if SELF_TEST
+    run_self_test_pin(LED_1, 678, 10);
+#endif
 
     while (true)
     {
-
-        nrf_delay_ms(500);
         NRF_LOG_INFO("Capture value: %i us", (timer_capture_value_get() * (1 << TIMER_PRESCALER) / 16));
 
+        nrf_delay_ms(500);
         NRF_LOG_FLUSH();
     }
 }

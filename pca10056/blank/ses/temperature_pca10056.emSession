@@ -45,9 +45,11 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="135" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../main.c" selected="1" top="120" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="108" useTextEdit="1" useBinaryEdit="0" left="0" path="../config/sdk_config.h" selected="0" top="69" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="71" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/drivers/include/nrfx_timer.h" selected="0" top="32" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="32" y="171" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../main.c" selected="1" top="149" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="24" y="346" useTextEdit="1" useBinaryEdit="0" left="0" path="../config/sdk_config.h" selected="0" top="308" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="18" y="44" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/drivers/include/nrfx_timer.h" selected="0" top="21" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="1075" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../integration/nrfx/legacy/apply_old_config.h" selected="0" top="1055" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="207" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/hal/nrf_timer.h" selected="0" top="180" codecName="Default"/>
  </Files>
- <ARMCrossStudioWindow activeProject="temperature_pca10056" fileDialogDefaultFilter="" autoConnectTarget="J-Link" buildConfiguration="Release" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Nordic_Semiconductor/nRF5_SDK_16.0.0/modules/nrfx/drivers/src" debugSearchPath="" autoConnectCapabilities="3711"/>
+ <ARMCrossStudioWindow activeProject="temperature_pca10056" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Release" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Nordic_Semiconductor/nRF5_SDK_16.0.0/modules/nrfx/drivers/src" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>
